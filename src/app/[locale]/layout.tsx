@@ -1,16 +1,19 @@
-// src/app/[locale]/layout.tsx  (server-only, no NextIntlClientProvider)
+import { NextIntlClientProvider, hasLocale } from 'next-intl';
 import { notFound } from 'next/navigation';
 import { routing } from '@/lib/i18n/routing';
-import { type Locale } from '@/lib/i18n/request';
 
-export default function LocaleLayout({
+export default async function LocaleLayout({
   children,
   params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }) {
-  const { locale } = params;
-  if (!routing.locales.includes(locale as Locale)) notFound();
-  return children;
+  // Ensure that the incoming `locale` is valid
+  const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  return <NextIntlClientProvider>{children}</NextIntlClientProvider>;
 }
