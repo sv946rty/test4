@@ -1,0 +1,144 @@
+{
+  "navigation": {
+    "title": "Testimora Web"
+  },
+  "hero": {
+    "title": "欢迎来到 Testimora",
+    "subtitle": "一个现代化的 Next.js 15 应用程序，使用 Tailwind CSS v4 和 ShadCN UI 组件"
+  },
+  "features": {
+    "tailwind": {
+      "title": "Tailwind CSS v4",
+      "description": "零配置设置，包含最新的 Tailwind CSS 功能"
+    },
+    "shadcn": {
+      "title": "ShadCN UI",
+      "description": "使用 Radix UI 构建的美丽、可访问的组件"
+    },
+    "darkMode": {
+      "title": "深色模式",
+      "description": "无缝的明暗主题切换，支持系统偏好设置"
+    }
+  },
+  "demo": {
+    "primaryTitle": "主色调演示",
+    "primaryDescription": "此按钮使用我们的自定义主色调 (#794bff)",
+    "buttonVariants": "按钮变体",
+    "getStarted": "开始使用",
+    "learnMore": "了解更多"
+  },
+  "buttons": {
+    "primary": "主要",
+    "secondary": "次要",
+    "outline": "轮廓",
+    "ghost": "幽灵",
+    "link": "链接",
+    "destructive": "危险"
+  },
+  "footer": {
+    "text": "使用 Next.js 15、Tailwind CSS v4 和 ShadCN UI 构建"
+  },
+  "language": {
+    "label": "语言",
+    "en": "英语",
+    "es": "西班牙语",
+    "zh": "中文"
+  },
+  "auth": {
+    "login": {
+      "title": "登录",
+      "subtitle": "请输入您的账户信息以登录",
+      "email": "电子邮箱",
+      "password": "密码",
+      "emailPlaceholder": "请输入电子邮箱",
+      "passwordPlaceholder": "请输入密码",
+      "signIn": "登录",
+      "signingIn": "正在登录…",
+      "loginSuccess": "登录成功！",
+      "continueWithGoogle": "使用 Google 继续",
+      "continueWithLinkedin": "使用 LinkedIn 继续",
+      "continueWithFacebook": "使用 Facebook 继续",
+      "orContinueWith": "或继续使用",
+      "noAccount": "还没有账户？",
+      "signUp": "注册",
+      "forgotPassword": "忘记密码？",
+      "resetPassword": "重置密码",
+      "resetPasswordSubtitle": "请输入您的电子邮箱，我们将发送密码重置链接。",
+      "sendResetLink": "发送重置链接",
+
+      "noAccountPrefix": "还没有账户？",
+      "contWithEmail": "使用邮箱继续",
+      "emailPh": "请输入电子邮箱",
+      "passwordPh": "请输入密码",
+      "back": "返回"
+    },
+    "register": {
+      "title": "创建账户",
+      "subtitle": "请输入您的信息以创建新账户",
+      "name": "姓名",
+      "email": "电子邮箱",
+      "password": "密码",
+      "confirmPassword": "确认密码",
+      "namePlaceholder": "请输入您的姓名",
+      "emailPlaceholder": "请输入电子邮箱",
+      "passwordPlaceholder": "请输入密码",
+      "confirmPasswordPlaceholder": "请再次输入密码",
+      "createAccount": "创建账户",
+      "creatingAccount": "正在创建账户…",
+      "continueWithGoogle": "使用 Google 继续",
+      "orContinueWith": "或继续使用",
+      "hasAccount": "已经有账户？",
+      "signIn": "登录",
+      "passwordMismatch": "两次输入的密码不一致",
+      "passwordTooShort": "密码长度至少为6个字符",
+
+      "namePh": "请输入您的姓名",
+      "emailPh": "请输入电子邮箱",
+      "passwordPh": "请输入密码",
+      "confirmPasswordPh": "请再次输入密码",
+      "signUpWithEmail": "使用邮箱注册",
+      "signUpWithLinkedin": "使用 LinkedIn 注册",
+      "signUpWithFacebook": "使用 Facebook 注册",
+      "signUpWithGoogle": "使用 Google 注册",
+      "back": "返回",
+      "errors": {
+        "registrationFailed": "注册失败"
+      }
+    },
+    "dashboard": {
+      "title": "仪表盘",
+      "welcome": "欢迎！",
+      "welcomeMessage": "您已成功登录账户。",
+      "userInfo": "用户信息",
+      "userInfoDescription": "您的账户详情和会话信息",
+      "email": "电子邮箱",
+      "name": "姓名",
+      "userId": "用户ID",
+      "protectedMessage": "这是您的受保护仪表盘，只有在登录后才能查看此页面。",
+      "signOut": "退出登录",
+      "signingOut": "正在退出…"
+    },
+    "errors": {
+      "loginFailed": "登录失败",
+      "registrationFailed": "注册失败",
+      "logoutFailed": "退出失败",
+      "sessionCheckFailed": "会话验证失败",
+      "internalError": "服务器内部错误",
+      "invalidCredentials": "账户或密码错误",
+      "emailPasswordRequired": "邮箱和密码为必填项",
+      "nameEmailPasswordRequired": "姓名、邮箱和密码为必填项"
+    },
+    "legalDisclaimer": {
+      "agreePrefix": "加入 {appName} 即表示您同意我们的",
+      "terms": "服务条款",
+      "privacy": "隐私政策",
+      "and": "和",
+      "updatesNote": "我们会不时向您发送更新信息，帮助您及时了解动态。"
+    },
+    "rightPanel": {
+      "headline": "把每个瞬间化为推荐",
+      "subtitle": "在最关键的时刻收集真实反馈，并将其转化为强有力、持久的社会证明。",
+      "imageAlt": "客户反馈插图"
+    }
+  }
+}

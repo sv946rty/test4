@@ -1,0 +1,45 @@
+CLI Folder
+
+This folder is to allow us to execute Better Auth + Drizzle cli scripts so we can generate schema, migrate schema to database, reset database, etc.
+
+*****
+
+CASE 1 - NEW APP 
+
+If you start out as a new app, the finalized Better Auth + Drizzle Schemas are already done for you. The final Drizzle schema file should be stored in /src/lib/db/schema/auth.ts. All you have to do now:
+
+(1) Ensure that the connection to Supabase + specific schema (such as testimora) is done. To ensure the new web app can connect to Supbase database, launch the web app with pnpm run dev, then go to http://localhost:3000/test/db-check to check.
+
+(2) In VS Code Terminal, run: pnpm db:migrate
+
+(3) Everything should run successfully and if you go to Supabase > testimora (or whichever DATABASE_SCHEMA name), you shall see the db tables are now created.
+
+*****
+
+CASE 2 - YOU WANT TO RUN EVERYTHING AGAIN 
+
+(1) In VS Code, run: pnpm auth:generate 
+
+You should now have a new Better Auth schema file @ cli/better-auth/output/auth-schema.ts
+
+(2) Copy and overwrite each and every schema in the newly generated Better Auth to existing Drizzle auth.ts schema @ src/lib/db/schema/auth.ts
+
+NOTE that since we use specific schema to store the db tables (not public schema), for example: export const user = dbSchema.table("user", { ... when you copy the schema, just copy the column specifications such as id: text("id").primaryKey(), DO NOT BLIDLY OVERWRITE the schema because that means we may not insert the db tables to the specific schema we want anymore (in this case, testimora)
+
+(3) Ensure that the connection to Supabase + specific schema (such as testimora) is done. To ensure the new web app can connect to Supbase database, launch the web app with pnpm run dev, then go to http://localhost:3000/test/db-check to check.
+
+(4) In VSCode Terminal, run: pnpm db:reset 
+
+This command will wipe off all the db tables in the specific schema matching with whatever names we have in the latest Drizzle schema found in /src/lib/db/schema folder
+
+(5) In VScode Terminal, run: pnpm db:migrate 
+
+This will populate all the db tables to the specific schema 
+
+You are now done
+
+*****
+
+If you want to run other commands such as pnmp db:push, check cli/index.ts or package.json on commands to run. 
+
+

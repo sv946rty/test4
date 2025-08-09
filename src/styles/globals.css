@@ -1,0 +1,168 @@
+@import 'tailwindcss';
+
+@layer base {
+  /* Links and anchor elements */
+  a[href] {
+    @apply cursor-pointer;
+  }
+
+  /* Buttons and clickable elements */
+  button,
+  [role='button'],
+  .cursor-pointer {
+    @apply cursor-pointer;
+  }
+
+  /* Next.js Link components and other clickable elements */
+  a,
+  button,
+  [role='button'],
+  [data-clickable='true'] {
+    cursor: pointer;
+  }
+}
+
+/* CSS Variables for theme colors */
+:root {
+  /* Primary color - #794bff */
+  --primary: #794bff;
+  --primary-foreground: #ffffff;
+
+  /* Background colors */
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* Card colors */
+  --card: #ffffff;
+  --card-foreground: #171717;
+
+  /* Popover colors */
+  --popover: #ffffff;
+  --popover-foreground: #171717;
+
+  /* Secondary colors */
+  --secondary: #f5f5f5;
+  --secondary-foreground: #171717;
+
+  /* Muted colors */
+  --muted: #f5f5f5;
+  --muted-foreground: #737373;
+
+  /* Accent colors */
+  --accent: #f5f5f5;
+  --accent-foreground: #171717;
+
+  /* Destructive colors */
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  /* Border colors */
+  --border: #e5e5e5;
+  --input: #e5e5e5;
+
+  /* Ring color */
+  --ring: #794bff;
+
+  /* Radius */
+  --radius: 0.5rem;
+}
+
+/* Dark theme variables - using .dark class for next-themes */
+.dark {
+  /* Primary color remains the same */
+  --primary: #794bff;
+  --primary-foreground: #ffffff;
+
+  /* Background colors for dark mode */
+  --background: #0a0a0a;
+  --foreground: #ededed;
+
+  /* Card colors for dark mode */
+  --card: #0a0a0a;
+  --card-foreground: #ededed;
+
+  /* Popover colors for dark mode */
+  --popover: #0a0a0a;
+  --popover-foreground: #ededed;
+
+  /* Secondary colors for dark mode */
+  --secondary: #171717;
+  --secondary-foreground: #ededed;
+
+  /* Muted colors for dark mode */
+  --muted: #171717;
+  --muted-foreground: #a3a3a3;
+
+  /* Accent colors for dark mode */
+  --accent: #171717;
+  --accent-foreground: #ededed;
+
+  /* Destructive colors remain the same */
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  /* Border colors for dark mode */
+  --border: #262626;
+  --input: #262626;
+
+  /* Ring color remains the same */
+  --ring: #794bff;
+}
+
+/* Tailwind v4 theme configuration */
+@theme inline {
+  /* Color definitions */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Font definitions */
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+
+  /* Border radius */
+  --radius: var(--radius);
+}
+
+/* Base styles */
+* {
+  border-color: var(--border);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Focus ring styles */
+.focus-visible\:ring-ring:focus-visible {
+  --tw-ring-color: var(--ring);
+}
+
+/* Theme transition styles */
+* {
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
+}

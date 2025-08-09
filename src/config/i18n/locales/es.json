@@ -1,0 +1,143 @@
+{
+  "navigation": {
+    "title": "Testimora Web"
+  },
+  "hero": {
+    "title": "Bienvenido a Testimora",
+    "subtitle": "Una aplicación moderna de Next.js 15 con Tailwind CSS v4 y componentes ShadCN UI"
+  },
+  "features": {
+    "tailwind": {
+      "title": "Tailwind CSS v4",
+      "description": "Configuración sin configuración con las últimas características de Tailwind CSS"
+    },
+    "shadcn": {
+      "title": "ShadCN UI",
+      "description": "Componentes hermosos y accesibles construidos con Radix UI"
+    },
+    "darkMode": {
+      "title": "Modo Oscuro",
+      "description": "Cambio perfecto entre temas claro/oscuro con soporte para preferencias del sistema"
+    }
+  },
+  "demo": {
+    "primaryTitle": "Demostración del Color Primario",
+    "primaryDescription": "Este botón usa nuestro color primario personalizado (#794bff)",
+    "buttonVariants": "Variantes de Botones",
+    "getStarted": "Comenzar",
+    "learnMore": "Saber Más"
+  },
+  "buttons": {
+    "primary": "Primario",
+    "secondary": "Secundario",
+    "outline": "Contorno",
+    "ghost": "Fantasma",
+    "link": "Enlace",
+    "destructive": "Destructivo"
+  },
+  "footer": {
+    "text": "Construido con Next.js 15, Tailwind CSS v4 y ShadCN UI"
+  },
+  "language": {
+    "label": "Idioma",
+    "en": "Inglés",
+    "es": "Español",
+    "zh": "Chino"
+  },
+  "auth": {
+    "login": {
+      "title": "Iniciar sesión",
+      "subtitle": "Introduce tus credenciales para acceder a tu cuenta",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "emailPlaceholder": "Introduce tu correo electrónico",
+      "passwordPlaceholder": "Introduce tu contraseña",
+      "signIn": "Iniciar sesión",
+      "signingIn": "Iniciando sesión...",
+      "loginSuccess": "¡Inicio de sesión exitoso!",
+      "continueWithGoogle": "Continuar con Google",
+      "continueWithLinkedin": "Continuar con LinkedIn",
+      "continueWithFacebook": "Continuar con Facebook",
+      "orContinueWith": "O continuar con",
+      "noAccount": "¿No tienes una cuenta?",
+      "signUp": "Regístrate",
+      "forgotPassword": "¿Olvidaste tu contraseña?",
+      "resetPassword": "Restablecer contraseña",
+      "resetPasswordSubtitle": "Introduce tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.",
+      "sendResetLink": "Enviar enlace de restablecimiento",
+
+      "noAccountPrefix": "¿No tienes una cuenta?",
+      "contWithEmail": "Continuar con tu correo",
+      "emailPh": "Introduce tu correo electrónico",
+      "passwordPh": "Introduce tu contraseña",
+      "back": "Volver"
+    },
+    "register": {
+      "title": "Crear cuenta",
+      "subtitle": "Introduce tu información para crear una nueva cuenta",
+      "name": "Nombre completo",
+      "email": "Correo electrónico",
+      "password": "Contraseña",
+      "confirmPassword": "Confirmar contraseña",
+      "namePlaceholder": "Introduce tu nombre completo",
+      "emailPlaceholder": "Introduce tu correo electrónico",
+      "passwordPlaceholder": "Introduce tu contraseña",
+      "confirmPasswordPlaceholder": "Confirma tu contraseña",
+      "createAccount": "Crear cuenta",
+      "creatingAccount": "Creando cuenta...",
+      "orContinueWith": "O continuar con",
+      "hasAccount": "¿Ya tienes una cuenta?",
+      "signIn": "Iniciar sesión",
+      "passwordMismatch": "Las contraseñas no coinciden",
+      "passwordTooShort": "La contraseña debe tener al menos 6 caracteres",
+
+      "namePh": "Introduce tu nombre completo",
+      "emailPh": "Introduce tu correo electrónico",
+      "passwordPh": "Introduce tu contraseña",
+      "confirmPasswordPh": "Confirma tu contraseña",
+      "signUpWithEmail": "Regístrate con correo electrónico",
+      "signUpWithLinkedin": "Regístrate con LinkedIn",
+      "signUpWithFacebook": "Regístrate con Facebook",
+      "signUpWithGoogle": "Regístrate con Google",
+      "back": "Volver",
+      "errors": {
+        "registrationFailed": "Error al registrarse"
+      }
+    },
+    "dashboard": {
+      "title": "Panel",
+      "welcome": "¡Bienvenido!",
+      "welcomeMessage": "Has iniciado sesión correctamente en tu cuenta.",
+      "userInfo": "Información del usuario",
+      "userInfoDescription": "Los datos de tu cuenta e información de sesión",
+      "email": "Correo electrónico",
+      "name": "Nombre",
+      "userId": "ID de usuario",
+      "protectedMessage": "Este es tu panel protegido. Solo puedes ver esta página si estás autenticado.",
+      "signOut": "Cerrar sesión",
+      "signingOut": "Cerrando sesión..."
+    },
+    "errors": {
+      "loginFailed": "Error al iniciar sesión",
+      "registrationFailed": "Error al registrarse",
+      "logoutFailed": "Error al cerrar sesión",
+      "sessionCheckFailed": "Error al verificar la sesión",
+      "internalError": "Error interno del servidor",
+      "invalidCredentials": "Credenciales inválidas",
+      "emailPasswordRequired": "Correo y contraseña son obligatorios",
+      "nameEmailPasswordRequired": "Nombre, correo y contraseña son obligatorios"
+    },
+    "legalDisclaimer": {
+      "agreePrefix": "Al unirte a {appName}, aceptas nuestros",
+      "terms": "Términos de servicio",
+      "privacy": "Política de privacidad",
+      "and": "y",
+      "updatesNote": "Te enviaremos actualizaciones ocasionales para mantenerte al tanto."
+    },
+    "rightPanel": {
+      "headline": "Convierte los momentos en testimonios",
+      "subtitle": "Recoge comentarios reales cuando más importan y conviértelos en una prueba social potente y duradera.",
+      "imageAlt": "Ilustración de comentarios de clientes"
+    }
+  }
+}

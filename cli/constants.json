@@ -1,0 +1,16 @@
+{
+  "paths": {
+    "betterAuth": {
+      "config": "cli/better-auth/auth.ts",
+      "schemaOutput": "cli/better-auth/output/auth-schema.ts",
+      "outputDir": "cli/better-auth/output"
+    },
+    "drizzle": {
+      "config": "cli/drizzle/drizzle.config.ts",
+      "migrate": "cli/drizzle/drizzle.migrate.ts",
+      "schemaGlob": "src/lib/db/schema/*",
+      "migrationsDir": "cli/drizzle/migrations",
+      "schemaDir": "src/lib/db/schema/"
+    }
+  }
+}

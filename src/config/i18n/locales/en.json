@@ -1,0 +1,143 @@
+{
+  "navigation": {
+    "title": "Testimora Web"
+  },
+  "hero": {
+    "title": "Welcome to Testimora",
+    "subtitle": "A modern Next.js 15 application with Tailwind CSS v4 and ShadCN UI components"
+  },
+  "features": {
+    "tailwind": {
+      "title": "Tailwind CSS v4",
+      "description": "Zero-config setup with the latest Tailwind CSS features"
+    },
+    "shadcn": {
+      "title": "ShadCN UI",
+      "description": "Beautiful, accessible components built with Radix UI"
+    },
+    "darkMode": {
+      "title": "Dark Mode",
+      "description": "Seamless light/dark theme switching with system preference support"
+    }
+  },
+  "demo": {
+    "primaryTitle": "Primary Color Demo",
+    "primaryDescription": "This button uses our custom primary color (#794bff)",
+    "buttonVariants": "Button Variants",
+    "getStarted": "Get Started",
+    "learnMore": "Learn More"
+  },
+  "buttons": {
+    "primary": "Primary",
+    "secondary": "Secondary",
+    "outline": "Outline",
+    "ghost": "Ghost",
+    "link": "Link",
+    "destructive": "Destructive"
+  },
+  "footer": {
+    "text": "Built with Next.js 15, Tailwind CSS v4, and ShadCN UI"
+  },
+  "language": {
+    "label": "Language",
+    "en": "English",
+    "es": "Spanish",
+    "zh": "Chinese"
+  },
+  "auth": {
+    "login": {
+      "title": "Sign In",
+      "subtitle": "Enter your credentials to access your account",
+      "email": "Email",
+      "password": "Password",
+      "emailPlaceholder": "Enter your email",
+      "passwordPlaceholder": "Enter your password",
+      "signIn": "Sign In",
+      "signingIn": "Signing in...",
+      "loginSuccess": "Login successful!",
+      "continueWithGoogle": "Sign in with Google",
+      "continueWithLinkedin": "Sign in with LinkedIn",
+      "continueWithFacebook": "Sign in with Facebook",
+      "orContinueWith": "Or continue with",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up",
+      "forgotPassword": "Forgot password?",
+      "resetPassword": "Reset password",
+      "resetPasswordSubtitle": "Enter your email address and we'll send you a link to reset your password.",
+      "sendResetLink": "Send reset link",
+
+      "noAccountPrefix": "Don't have an account?",
+      "contWithEmail": "Sign in with your email",
+      "emailPh": "Enter your email",
+      "passwordPh": "Enter your password",
+      "back": "Back"
+    },
+    "register": {
+      "title": "Create Account",
+      "subtitle": "Enter your information to create a new account",
+      "name": "Full Name",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "namePlaceholder": "Enter your full name",
+      "emailPlaceholder": "Enter your email",
+      "passwordPlaceholder": "Enter your password",
+      "confirmPasswordPlaceholder": "Confirm your password",
+      "createAccount": "Create Account",
+      "creatingAccount": "Creating account...",
+      "orContinueWith": "Or continue with",
+      "hasAccount": "Already have an account?",
+      "signIn": "Sign in",
+      "passwordMismatch": "Passwords do not match",
+      "passwordTooShort": "Password must be at least 6 characters long",
+
+      "namePh": "Enter your full name",
+      "emailPh": "Enter your email",
+      "passwordPh": "Enter your password",
+      "confirmPasswordPh": "Confirm your password",
+      "signUpWithEmail": "Sign up with email",
+      "signUpWithLinkedin": "Sign up with LinkedIn",
+      "signUpWithFacebook": "Sign up with Facebook",
+      "signUpWithGoogle": "Sign up with Google",
+      "back": "Back",
+      "errors": {
+        "registrationFailed": "Registration failed"
+      }
+    },
+    "dashboard": {
+      "title": "Dashboard",
+      "welcome": "Welcome!",
+      "welcomeMessage": "You have successfully logged in to your account.",
+      "userInfo": "User Information",
+      "userInfoDescription": "Your account details and session information",
+      "email": "Email",
+      "name": "Name",
+      "userId": "User ID",
+      "protectedMessage": "This is your protected dashboard. You can only see this page when you're authenticated.",
+      "signOut": "Sign Out",
+      "signingOut": "Signing out..."
+    },
+    "errors": {
+      "loginFailed": "Login failed",
+      "registrationFailed": "Registration failed",
+      "logoutFailed": "Logout failed",
+      "sessionCheckFailed": "Session check failed",
+      "internalError": "Internal server error",
+      "invalidCredentials": "Invalid credentials",
+      "emailPasswordRequired": "Email and password are required",
+      "nameEmailPasswordRequired": "Name, email and password are required"
+    },
+    "legalDisclaimer": {
+      "agreePrefix": "By joining {appName}, you’re agreeing to our",
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy",
+      "and": "and",
+      "updatesNote": "We’ll send occasional updates to keep you in the loop."
+    },
+    "rightPanel": {
+      "headline": "Turn Moments Into Testimonials",
+      "subtitle": "Collect real feedback when it matters most and turn it into powerful, lasting social proof.",
+      "imageAlt": "Client feedback illustration"
+    }
+  }
+}

@@ -1,0 +1,65 @@
+src/
+├── features/
+│   └── auth/
+│       ├── components/
+│       │   ├── AuthHeader.tsx
+│       │   ├── AuthLayout.tsx
+│       │   ├── AuthResetPassword.tsx       // Generic reset password component (was RegistrationResetPassword)
+│       │   ├── DescriptivePanel.tsx
+│       │   ├── FormInput.tsx
+│       │   ├── LegalDisclaimer.tsx
+│       │   ├── LoginEmailForm.tsx          // Login-specific email form
+│       │   ├── LoginMainOptions.tsx        // Login-specific main options
+│       │   ├── PasswordRequirements.tsx
+│       │   ├── RegistrationEmailForm.tsx   // Registration-specific email form
+│       │   ├── RegistrationMainOptions.tsx // Registration-specific main options
+│       │   └── SocialButtons.tsx
+│       ├── constants/
+│       │   └── index.ts                 // Consolidated auth constants (was password.ts)
+│       ├── hooks/
+│       │   └── useAuth.ts               // (Optional, for future complex auth logic)
+│       └── types/
+│           └── auth.ts                  // Contains Zod schemas and derived types (was utils/authSchemas.ts)
+├── app/
+│   ├── (auth)/
+│   │   ├── login/
+│   │   │   └── page.tsx             // Login page
+│   │   └── register/
+│   │       └── page.tsx             // Registration page
+│   └── layout.tsx                   // (Your root layout, if exists)
+│   └── globals.css                  // (Your global styles, if exists)
+│   └── page.tsx                     // (Your home page, if exists)
+└── components/                      // For general UI components (e.g., shadcn/ui)
+    └── ui/
+        ├── button.tsx
+        ├── form.tsx
+        ├── input.tsx
+        ├── toaster.tsx
+        └── // ... other shadcn components
+
+=======
+
+components/auth/AuthHeader.tsx: For the "Create a new account" or "Sign in to your account" headings and the "Already have an account?" / "Don't have an account?" links.
+
+components/auth/AuthLayout.tsx: This will contain the main structural layout (the gradient background, logo, and the two-panel grid), which is reusable for both login and registration.
+
+components/auth/AuthResetPassword.tsx: Contains the "Reset Password" form.
+
+components/auth/DescriptivePanel.tsx: The right-hand panel with the illustration and marketing text.
+
+components/auth/FormInput.tsx: A reusable component for a form field (label, input, and message), making the form rendering cleaner.
+
+components/auth/LegalDisclaimer.tsx: The small text at the bottom about Terms of Service and Privacy Policy.
+
+components/auth/LoginEmailForm.tsx: Contains the full email login form (email, password). This will receive onSubmit and form state props.
+
+components/auth/LoginMainOptions.tsx: Encapsulates the initial view with social login buttons and the "Continue with email" option.
+
+components/auth/PasswordRequirements.tsx: A dedicated component to display the password strength requirements.
+
+components/auth/RegistrationEmailForm.tsx: Contains the full email registration form (name, email, password fields, password requirements, and submit button). This will receive onSubmit and form state props.
+
+components/auth/RegistrationMainOptions.tsx: Encapsulates the initial view with social login buttons and the "Continue with email" option.
+
+components/auth/SocialButtons.tsx: This will encapsulate the Google, LinkedIn, Facebook, and "Continue with Email" buttons, along with their respective icons. This block is highly reusable.
+
