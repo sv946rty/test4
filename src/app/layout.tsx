@@ -1,3 +1,5 @@
+import { SpeedInsights } from '@vercel/speed-insights/next';
+
 import { siteFontSans, siteFontMono } from '@/lib/fonts';
 
 import '@/styles/globals.css';
