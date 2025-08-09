@@ -19,7 +19,7 @@ import {
   RegisterFormData,
 } from '@/features/auth/types/auth';
 
-type OAuthProvider = 'google' | 'linkedin' | 'facebook';
+import { OAuthProvider, oauthUrl } from '@/features/auth/types/oauth';
 
 function SocialButton({
   icon,
@@ -75,7 +75,7 @@ export default function SignUpClient({ signInHref }: { signInHref: string }) {
       setForm(prev => ({ ...prev, [k]: e.target.value }));
 
   function handleOAuth(provider: OAuthProvider) {
-    window.location.href = `/api/auth/oauth/${provider}`;
+    window.location.href = oauthUrl(provider);
   }
 
   async function handleSubmit(e: React.FormEvent) {
@@ -198,7 +198,7 @@ export default function SignUpClient({ signInHref }: { signInHref: string }) {
               </div>
 
               {/* Secondary providers row */}
-              <div className="grid grid-cols-2 gap-3 pt-1">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 pt-1">
                 <div className="flex justify-center">
                   <SocialButton
                     icon={
