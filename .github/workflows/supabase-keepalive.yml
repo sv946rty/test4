@@ -3,7 +3,7 @@ name: Supabase keepalive (anon + RLS)
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 10 */3 * *' # every 3 days at 10:00 UTC
+    - cron: '0 10 * * *' # run every day at 10:00 UTC
 
 jobs:
   ping:
