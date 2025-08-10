@@ -16,6 +16,12 @@ export default function Home() {
       <header className="flex justify-between items-center p-6 border-b border-border">
         <h1 className="text-xl font-semibold">{t('navigation.title')}</h1>
         <div className="flex items-center gap-2">
+          <Button variant="outline" asChild>
+            <a href="/sign-in">Sign In</a>
+          </Button>
+          <Button asChild>
+            <a href="/sign-up">Sign Up</a>
+          </Button>
           <LanguageSwitcher />
           <ThemeToggle />
         </div>

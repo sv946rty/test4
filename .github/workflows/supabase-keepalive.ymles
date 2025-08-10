@@ -1,0 +1,22 @@
+name: Supabase keepalive
+on:
+  schedule:
+    - cron: "0 10 */3 * *"   # every 3 days at 10:00 UTC
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Touch keepalive row
+        run: |
+          curl -sS -X PATCH "$SUPABASE_URL/rest/v1/keepalive?id=eq.1" \
+            -H "apikey: $SUPABASE_ANON_KEY" \
+            -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
+            -H "Content-Type: application/json" \
+            -H "Prefer: return=representation" \
+            --data '{"touched_at": "'"$(date -u +"%Y-%m-%dT%H:%M:%SZ")"'"}' \
+            | jq .
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}

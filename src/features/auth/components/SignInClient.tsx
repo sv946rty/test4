@@ -22,7 +22,7 @@ import {
 // If your reset component lives elsewhere, adjust this import:
 import AuthResetPassword from './AuthResetPassword';
 
-type OAuthProvider = 'google' | 'linkedin' | 'facebook';
+import { type OAuthProvider } from './../types/oauth';
 
 function SocialButton({
   icon,

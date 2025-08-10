@@ -2,17 +2,17 @@
 
 // For the "Create a new account" or "Sign in to your account" headings and the "Already have an account?" / "Don't have an account?" links.
 
-import React from "react";
-import Link from "next/link";
+import React from 'react';
+import Link from 'next/link';
 
 interface AuthHeaderProps {
   title: string;
-  subtitle?: string; // Made optional
-  linkText?: string; // Made optional
-  linkHref?: string; // Made optional
+  subtitle?: string;
+  linkText?: string;
+  linkHref?: string;
   backButtonText?: string;
   onBackButtonClick?: () => void;
-  onLinkTextClick?: () => void; // Already optional, but good to confirm
+  onLinkTextClick?: () => void;
 }
 
 const AuthHeader: React.FC<AuthHeaderProps> = ({
@@ -38,7 +38,7 @@ const AuthHeader: React.FC<AuthHeaderProps> = ({
       {/* Only render the subtitle paragraph if subtitle or linkText are provided */}
       {(subtitle || linkText) && (
         <p className="text-sm md:text-base text-gray-700 font-medium">
-          {subtitle}{" "}
+          {subtitle}{' '}
           {onLinkTextClick && linkText ? ( // Ensure linkText is also present for button rendering
             <button
               type="button"
