@@ -19,28 +19,30 @@ jobs:
         run: |
           set -euo pipefail
           NOW="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          NOTE="init-$(openssl rand -hex 6)"
 
           curl -sS -i -X POST "$SUPABASE_URL/rest/v1/keepalive?on_conflict=id" \
             -H "apikey: $SUPABASE_KEY" \
             -H "Authorization: Bearer $SUPABASE_KEY" \
             -H "Content-Type: application/json" \
             -H "Prefer: resolution=merge-duplicates,return=representation" \
-            --data "{\"id\":1,\"touched_at\":\"$NOW\"}" | sed -n '1,20p'
+            --data "{\"id\":1,\"touched_at\":\"$NOW\",\"note\":\"$NOTE\"}" | sed -n '1,40p'
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_ANON_KEY }}
 
-      - name: Touch keepalive row (PATCH)
+      - name: Touch keepalive row (PATCH with random note)
         run: |
           set -euo pipefail
           NOW="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
+          NOTE="run-$NOW-$(openssl rand -hex 6)"
 
           curl -sS -i -X PATCH "$SUPABASE_URL/rest/v1/keepalive?id=eq.1" \
             -H "apikey: $SUPABASE_KEY" \
             -H "Authorization: Bearer $SUPABASE_KEY" \
             -H "Content-Type: application/json" \
             -H "Prefer: return=representation" \
-            --data "{\"touched_at\":\"$NOW\"}" | sed -n '1,80p'
+            --data "{\"touched_at\":\"$NOW\",\"note\":\"$NOTE\"}" | sed -n '1,120p'
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY || secrets.SUPABASE_ANON_KEY }}
@@ -49,7 +51,7 @@ jobs:
         run: |
           set -euo pipefail
           echo "Reading back supabase keepalive row:"
-          curl -sS "$SUPABASE_URL/rest/v1/keepalive?id=eq.1&select=id,touched_at" \
+          curl -sS "$SUPABASE_URL/rest/v1/keepalive?id=eq.1&select=id,touched_at,note" \
             -H "apikey: $SUPABASE_KEY" \
             -H "Authorization: Bearer $SUPABASE_KEY" \
             -H "Accept: application/json" | jq .
