@@ -1,4 +1,4 @@
-name: Supabase keepalive (diag)
+name: Supabase keepalive (anon + RLS)
 on:
   workflow_dispatch:
   schedule:
@@ -10,32 +10,22 @@ jobs:
     steps:
       - name: Check required secrets
         run: |
-          : "${SUPABASE_URL:?missing} ${SUPABASE_SERVICE_ROLE_KEY:?missing}"
-
+          : "${SUPABASE_URL:?missing} ${SUPABASE_ANON_KEY:?missing}"
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
-
-      - name: Show project ref and DNS reachability
-        run: |
-          set -euo pipefail
-          echo "SUPABASE_URL=$SUPABASE_URL"
-          echo "HEAD $SUPABASE_URL"
-          curl -sS -I "$SUPABASE_URL" | sed -n '1,20p'
-        env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
 
       - name: Sanity GET (public:keepalive)
         run: |
           set -euo pipefail
           echo "GET /rest/v1/public:keepalive (limit=1)"
           curl --fail-with-body -sS "$SUPABASE_URL/rest/v1/public:keepalive?select=id,touched_at,note&limit=1" \
-            -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
-            -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" \
+            -H "apikey: $SUPABASE_ANON_KEY" \
+            -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
             -H "Accept: application/json" | jq .
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
 
       - name: Ensure row exists (UPSERT id=1)
         run: |
@@ -44,14 +34,14 @@ jobs:
           NOTE="init-$(openssl rand -hex 6)"
           echo "POST /rest/v1/public:keepalive?on_conflict=id"
           curl --fail-with-body -sS -i -X POST "$SUPABASE_URL/rest/v1/public:keepalive?on_conflict=id" \
-            -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
-            -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" \
+            -H "apikey: $SUPABASE_ANON_KEY" \
+            -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
             -H "Content-Type: application/json" \
             -H "Prefer: resolution=merge-duplicates,return=representation" \
             --data "{\"id\":1,\"touched_at\":\"$NOW\",\"note\":\"$NOTE\"}" | sed -n '1,120p'
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
 
       - name: Touch keepalive row (PATCH with random note)
         run: |
@@ -60,23 +50,23 @@ jobs:
           NOTE="run-$NOW-$(openssl rand -hex 6)"
           echo "PATCH /rest/v1/public:keepalive?id=eq.1"
           curl --fail-with-body -sS -i -X PATCH "$SUPABASE_URL/rest/v1/public:keepalive?id=eq.1" \
-            -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
-            -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" \
+            -H "apikey: $SUPABASE_ANON_KEY" \
+            -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
             -H "Content-Type: application/json" \
             -H "Prefer: return=representation" \
             --data "{\"touched_at\":\"$NOW\",\"note\":\"$NOTE\"}" | sed -n '1,160p'
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
 
       - name: Verify update
         run: |
           set -euo pipefail
           echo "GET /rest/v1/public:keepalive?id=eq.1"
           curl --fail-with-body -sS "$SUPABASE_URL/rest/v1/public:keepalive?id=eq.1&select=id,touched_at,note" \
-            -H "apikey: $SUPABASE_SERVICE_ROLE_KEY" \
-            -H "Authorization: Bearer $SUPABASE_SERVICE_ROLE_KEY" \
+            -H "apikey: $SUPABASE_ANON_KEY" \
+            -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
             -H "Accept: application/json" | jq .
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
