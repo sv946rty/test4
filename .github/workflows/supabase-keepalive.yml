@@ -48,7 +48,7 @@ jobs:
       - name: Verify update (GET the row)
         run: |
           set -euo pipefail
-          echo "Reading back keepalive row:"
+          echo "Reading back supabase keepalive row:"
           curl -sS "$SUPABASE_URL/rest/v1/keepalive?id=eq.1&select=id,touched_at" \
             -H "apikey: $SUPABASE_KEY" \
             -H "Authorization: Bearer $SUPABASE_KEY" \
