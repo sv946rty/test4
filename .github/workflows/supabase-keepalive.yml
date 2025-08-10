@@ -1,13 +1,36 @@
 name: Supabase keepalive (anon + RLS)
+
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 10 */3 * *'
+    - cron: '0 10 */3 * *' # every 3 days at 10:00 UTC
 
 jobs:
   ping:
     runs-on: ubuntu-latest
     steps:
+      # ------------------------------------------------------------
+      # This workflow runs with the Supabase **ANON KEY**
+      # and requires **RLS ENABLED** on the `public.keepalive` table.
+      #
+      # One-time DB setup in Supabase:
+      #   ALTER TABLE public.keepalive ENABLE ROW LEVEL SECURITY;
+      #
+      #   CREATE POLICY "anon_select_keepalive_id_1"
+      #     ON public.keepalive FOR SELECT TO anon USING (id = 1);
+      #
+      #   CREATE POLICY "anon_insert_keepalive_id_1"
+      #     ON public.keepalive FOR INSERT TO anon WITH CHECK (id = 1);
+      #
+      #   CREATE POLICY "anon_update_keepalive_id_1"
+      #     ON public.keepalive FOR UPDATE TO anon USING (id = 1) WITH CHECK (id = 1);
+      #
+      #   GRANT USAGE ON SCHEMA public TO anon;
+      #   GRANT SELECT, INSERT, UPDATE ON public.keepalive TO anon;
+      #
+      # These policies ensure the anon role can only read/update the single row id=1.
+      # ------------------------------------------------------------
+
       - name: Check required secrets
         run: |
           : "${SUPABASE_URL:?missing} ${SUPABASE_ANON_KEY:?missing}"
@@ -31,7 +54,7 @@ jobs:
         run: |
           set -euo pipefail
           NOW="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
-          NOTE="init-$(openssl rand -hex 6)"
+          NOTE="$(openssl rand -hex 8)"   # purely random text
           echo "POST /rest/v1/keepalive?on_conflict=id"
           curl --fail-with-body -sS -i -X POST "$SUPABASE_URL/rest/v1/keepalive?on_conflict=id" \
             -H "apikey: $SUPABASE_ANON_KEY" \
@@ -47,7 +70,7 @@ jobs:
         run: |
           set -euo pipefail
           NOW="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
-          NOTE="run-$NOW-$(openssl rand -hex 6)"
+          NOTE="$(openssl rand -hex 8)"   # purely random text
           echo "PATCH /rest/v1/keepalive?id=eq.1"
           curl --fail-with-body -sS -i -X PATCH "$SUPABASE_URL/rest/v1/keepalive?id=eq.1" \
             -H "apikey: $SUPABASE_ANON_KEY" \
