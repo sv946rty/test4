@@ -15,11 +15,11 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
 
-      - name: Sanity GET (public:keepalive)
+      - name: Sanity GET (keepalive)
         run: |
           set -euo pipefail
-          echo "GET /rest/v1/public:keepalive (limit=1)"
-          curl --fail-with-body -sS "$SUPABASE_URL/rest/v1/public:keepalive?select=id,touched_at,note&limit=1" \
+          echo "GET /rest/v1/keepalive (limit=1)"
+          curl --fail-with-body -sS "$SUPABASE_URL/rest/v1/keepalive?select=id,touched_at,note&limit=1" \
             -H "apikey: $SUPABASE_ANON_KEY" \
             -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
             -H "Accept: application/json" | jq .
@@ -32,8 +32,8 @@ jobs:
           set -euo pipefail
           NOW="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
           NOTE="init-$(openssl rand -hex 6)"
-          echo "POST /rest/v1/public:keepalive?on_conflict=id"
-          curl --fail-with-body -sS -i -X POST "$SUPABASE_URL/rest/v1/public:keepalive?on_conflict=id" \
+          echo "POST /rest/v1/keepalive?on_conflict=id"
+          curl --fail-with-body -sS -i -X POST "$SUPABASE_URL/rest/v1/keepalive?on_conflict=id" \
             -H "apikey: $SUPABASE_ANON_KEY" \
             -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
             -H "Content-Type: application/json" \
@@ -48,8 +48,8 @@ jobs:
           set -euo pipefail
           NOW="$(date -u +"%Y-%m-%dT%H:%M:%SZ")"
           NOTE="run-$NOW-$(openssl rand -hex 6)"
-          echo "PATCH /rest/v1/public:keepalive?id=eq.1"
-          curl --fail-with-body -sS -i -X PATCH "$SUPABASE_URL/rest/v1/public:keepalive?id=eq.1" \
+          echo "PATCH /rest/v1/keepalive?id=eq.1"
+          curl --fail-with-body -sS -i -X PATCH "$SUPABASE_URL/rest/v1/keepalive?id=eq.1" \
             -H "apikey: $SUPABASE_ANON_KEY" \
             -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
             -H "Content-Type: application/json" \
@@ -62,8 +62,8 @@ jobs:
       - name: Verify update
         run: |
           set -euo pipefail
-          echo "GET /rest/v1/public:keepalive?id=eq.1"
-          curl --fail-with-body -sS "$SUPABASE_URL/rest/v1/public:keepalive?id=eq.1&select=id,touched_at,note" \
+          echo "GET /rest/v1/keepalive?id=eq.1"
+          curl --fail-with-body -sS "$SUPABASE_URL/rest/v1/keepalive?id=eq.1&select=id,touched_at,note" \
             -H "apikey: $SUPABASE_ANON_KEY" \
             -H "Authorization: Bearer $SUPABASE_ANON_KEY" \
             -H "Accept: application/json" | jq .
